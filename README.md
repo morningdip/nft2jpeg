@@ -8,7 +8,7 @@ It scrapes top ranking collections and downloads(steals) from [OpenSea](https://
 - Python 3.6 or above
 - A heart that loves NFTs
 
-## Setip
+## Setup
 
 ```powershell
 pip install -r requirements.txt
