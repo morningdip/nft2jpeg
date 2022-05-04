@@ -70,6 +70,13 @@ def download_collection(scraper, collection, chunk_size=30):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Make JPEG Great Again!')
+    parser.add_argument(
+        '--rank', '-r',
+        default='total_volume',
+        choices=['one_day_volume', 'seven_day_volume', 'thirty_day_volume', 'total_volume'])
+    args = parser.parse_args()
+    
     scraper = init_scraper()
-    edges = parse_ranking_html(scraper, 'https://opensea.io/rankings?sortBy=')
+    edges = parse_ranking_html(scraper, 'https://opensea.io/rankings?sortBy=', args.rank)
     collection_names = get_collection_names(edges)
